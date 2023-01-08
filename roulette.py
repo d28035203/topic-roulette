@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""revision-roulette — random GS topic spinner."""
+"""topic-roulette — random GS topic spinner."""
 
 from __future__ import print_function
 import os, random, sys
