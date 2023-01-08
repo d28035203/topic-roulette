@@ -1,6 +1,6 @@
 # Revision Roulette
 
-Spin a **random GS topic** when you cannot decide what to revise.
+Spin a **random study topic** when you cannot decide what to revise.
 
 ```bash
 python3 roulette.py

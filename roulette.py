@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""topic-roulette — random GS topic spinner."""
+"""topic-roulette — random study topic spinner."""
 
 from __future__ import print_function
 import os, random, sys
@@ -10,7 +10,7 @@ PEPS = [
     "No renegotiation. 45 minutes. Go.",
     "The optional subject is watching.",
     "Future you will thank present you. Maybe.",
-    "UPSC rewards boring consistency.",
+    "exam rewards boring consistency.",
 ]
 
 
