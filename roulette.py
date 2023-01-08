@@ -1,35 +1,42 @@
 #!/usr/bin/env python3
-"""topic-roulette — random study topic spinner."""
+"""topic-roulette — pick a random study topic."""
+from __future__ import annotations
 
-from __future__ import print_function
-import os, random, sys
+import argparse
+import os
+import random
+import sys
 
-WHEEL = os.path.join(os.path.dirname(os.path.abspath(__file__)), "wheel.txt")
-
-PEPS = [
-    "No renegotiation. 45 minutes. Go.",
-    "The optional subject is watching.",
-    "Future you will thank present you. Maybe.",
-    "exam rewards boring consistency.",
-]
+HERE = os.path.dirname(os.path.abspath(__file__))
 
 
-def main():
-    items = []
-    with open(WHEEL) as f:
-        for line in f:
+def load(path: str) -> list[str]:
+    out = []
+    with open(path, encoding="utf-8") as fh:
+        for line in fh:
             line = line.strip()
-            if line:
-                items.append(line)
-    if not items:
-        print("wheel.txt empty")
+            if line and not line.startswith("#"):
+                out.append(line)
+    return out
+
+
+def main() -> int:
+    p = argparse.ArgumentParser()
+    p.add_argument("--file", default=os.path.join(HERE, "wheel.txt"))
+    p.add_argument("-n", type=int, default=1)
+    p.add_argument("--seed", type=int, default=None)
+    args = p.parse_args()
+    if args.seed is not None:
+        random.seed(args.seed)
+    topics = load(args.file)
+    if not topics:
+        print("no topics", file=sys.stderr)
         return 1
-    print("*** REVISION ROULETTE ***")
-    print(random.choice(items))
-    print()
-    print(random.choice(PEPS))
+    n = min(args.n, len(topics))
+    for t in random.sample(topics, n):
+        print(t)
     return 0
 
 
 if __name__ == "__main__":
-    sys.exit(main())
+    raise SystemExit(main())

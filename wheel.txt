@@ -1,10 +1,11 @@
-GS1: Art & culture — temple architecture one-pager
-GS1: Freedom struggle — 1919–1935 timeline
-GS2: Federalism — recent flashpoints
-GS2: Constitutional bodies vs statutory bodies
-GS3: Agriculture — MSP and procurement
-GS3: Internal security — coastal security
-GS4: Foundational values — integrity examples
-Essay: education and inequality
-Optional: core chapter you are avoiding
-Map practice: national parks (north-east)
+# Topics — one per line
+System design: URL shortener
+Networking: TCP vs UDP
+Databases: indexing trade-offs
+OS: virtual memory
+Security: OWASP top risks
+Backend: idempotent APIs
+DevOps: blue/green deploys
+Algorithms: graph BFS/DFS
+Concurrency: locks vs channels
+Cloud: object storage basics
